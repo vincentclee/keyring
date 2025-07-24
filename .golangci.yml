@@ -1,3 +1,5 @@
+version: "2"
+
 linters:
   enable:
     - bodyclose
@@ -10,8 +12,6 @@ linters:
     - exhaustive
     - copyloopvar  # Go 1.24+ has enhanced loop variable semantics, but this linter still helps catch issues
     - gocritic
-    - gofmt
-    - goimports
     - makezero
     - misspell
     - nakedret
@@ -27,3 +27,8 @@ linters:
     - unparam
     # - wastedassign
     - whitespace
+
+formatters:
+  enable:
+    - gofmt
+    - goimports

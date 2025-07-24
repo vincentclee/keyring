@@ -4,6 +4,7 @@
 package keyring
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -47,7 +48,7 @@ func init() {
 		// fail if the pass program is not available
 		_, err = exec.LookPath(pass.passcmd)
 		if err != nil {
-			return nil, errors.New("The pass program is not available")
+			return nil, errors.New("the pass program is not available")
 		}
 
 		return pass, nil
@@ -61,7 +62,8 @@ type passKeyring struct {
 }
 
 func (k *passKeyring) pass(args ...string) *exec.Cmd {
-	cmd := exec.Command(k.passcmd, args...)
+	ctx := context.Background()
+	cmd := exec.CommandContext(ctx, k.passcmd, args...)
 	if k.dir != "" {
 		cmd.Env = append(os.Environ(), fmt.Sprintf("PASSWORD_STORE_DIR=%s", k.dir))
 	}

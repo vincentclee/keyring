@@ -1,3 +1,4 @@
+// Package main provides a command-line interface for the keyring library.
 package main
 
 import (
