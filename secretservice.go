@@ -169,7 +169,7 @@ func (k *secretsKeyring) Get(key string) (Item, error) {
 // automatically maintained last-modification timestamp, so to use this we'd
 // need to have a SetMetadata API too.  Which we're not yet doing, but feel
 // free to contribute patches.
-func (k *secretsKeyring) GetMetadata(key string) (Metadata, error) {
+func (k *secretsKeyring) GetMetadata(_ string) (Metadata, error) {
 	return Metadata{}, ErrMetadataNeedsCredentials
 }
 
