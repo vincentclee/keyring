@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/vincentclee/keyring"
+	"github.com/vincentclee/keyring/v2"
 )
 
 func TestSavingCredentialsWithWinCred(t *testing.T) {

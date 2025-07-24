@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vincentclee/keyring"
+	"github.com/vincentclee/keyring/v2"
 	"golang.org/x/sys/unix"
 
 	"github.com/stretchr/testify/require"
