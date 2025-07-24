@@ -5,6 +5,7 @@ package keyring
 
 import (
 	"bytes"
+	"context"
 	"fmt"
 	"os"
 	"os/exec"
@@ -15,7 +16,8 @@ import (
 
 func runCmd(t *testing.T, cmds ...string) {
 	t.Helper()
-	cmd := exec.Command(cmds[0], cmds[1:]...)
+	ctx := context.Background()
+	cmd := exec.CommandContext(ctx, cmds[0], cmds[1:]...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Println(cmd)
@@ -44,9 +46,15 @@ func setup(t *testing.T) (*passKeyring, func(t *testing.T)) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	os.Setenv("GNUPGHOME", gnupghome)
-	os.Unsetenv("GPG_AGENT_INFO")
-	os.Unsetenv("GPG_TTY")
+	if err := os.Setenv("GNUPGHOME", gnupghome); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.Unsetenv("GPG_AGENT_INFO"); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.Unsetenv("GPG_TTY"); err != nil {
+		t.Fatal(err)
+	}
 	runCmd(t, "gpg", "--import", filepath.Join(pwd, "testdata", "test-gpg.key"))
 	runCmd(t, "gpg", "--import-ownertrust", filepath.Join(pwd, "testdata", "test-ownertrust-gpg.txt"))
 
@@ -66,7 +74,9 @@ func setup(t *testing.T) (*passKeyring, func(t *testing.T)) {
 
 	return k, func(t *testing.T) {
 		t.Helper()
-		os.RemoveAll(tmpdir)
+		if err := os.RemoveAll(tmpdir); err != nil {
+			t.Logf("Failed to remove tmpdir: %v", err)
+		}
 	}
 }
 

@@ -49,6 +49,7 @@ func (k *ArrayKeyring) Keys() ([]string, error) {
 	return keys, nil
 }
 
+// GetMetadata returns an error as the ArrayKeyring backend does not support metadata access
 func (k *ArrayKeyring) GetMetadata(_ string) (Metadata, error) {
 	return Metadata{}, ErrMetadataNeedsCredentials
 }

@@ -50,7 +50,7 @@ type secretsKeyring struct {
 	session    *libsecret.Session
 }
 
-var errCollectionNotFound = errors.New("The collection does not exist. Please add a key first")
+var errCollectionNotFound = errors.New("the collection does not exist. Please add a key first")
 
 func decodeKeyringString(src string) string {
 	var dst strings.Builder
