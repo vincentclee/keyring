@@ -8,7 +8,7 @@ linters:
     - errchkjson
     - errname
     - exhaustive
-    - exportloopref
+    - copyloopvar  # Go 1.23+ has built-in loop variable semantics, but this linter still helps catch issues
     - gocritic
     - gofmt
     - goimports
