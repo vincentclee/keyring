@@ -8,6 +8,7 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'go.mod'
+      - run: sudo apt-get update
       - run: sudo apt-get install pass gnome-keyring dbus-x11
       - run: go test -race ./...
   mac:
