@@ -1,3 +1,5 @@
+github.com/99designs/go-keychain v0.0.0-20160105221929-9cf53c87839c h1:T9RAZbgkOMXn6UM1mnDrtt992kepEt/VfQKFGZx3V9c=
+github.com/99designs/go-keychain v0.0.0-20160105221929-9cf53c87839c/go.mod h1:hN7oaIRCjzsZ2dE+yG5k+rsdt3qcwykqK6HVGcKwsw4=
 github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4 h1:/vQbFIOMbk2FiG/kXiLl8BRyzTWDw7gX/Hz7Dd5eDMs=
 github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4/go.mod h1:hN7oaIRCjzsZ2dE+yG5k+rsdt3qcwykqK6HVGcKwsw4=
 github.com/danieljoos/wincred v1.2.2 h1:774zMFJrqaeYCK2W57BgAem/MLi6mtSE47MB6BOJ0i0=
