@@ -42,7 +42,7 @@ func (k *ArrayKeyring) Remove(key string) error {
 
 // Keys provides a slice of all Item keys on the Keyring.
 func (k *ArrayKeyring) Keys() ([]string, error) {
-	var keys = []string{}
+	keys := make([]string, 0, len(k.items))
 	for key := range k.items {
 		keys = append(keys, key)
 	}

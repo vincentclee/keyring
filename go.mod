@@ -1,6 +1,6 @@
 module github.com/vincentclee/keyring/v2
 
-go 1.25.0
+go 1.26.0
 
 require (
 	github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4
